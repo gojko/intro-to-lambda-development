@@ -10,6 +10,11 @@
 * http://jmespath.org/examples.html
 * https://claudiajs.com/tutorials/aws-cli-tricks.html
 
+
+## Using Dynamo
+
+* http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html
+
 ## File Conversion
 
 * http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html
