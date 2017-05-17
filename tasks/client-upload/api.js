@@ -6,12 +6,12 @@ const API = require('claudia-api-builder'),
 
 module.exports = api;
 
-api.post('/generate-upload-url', request => {
+api.get('/upload-file', request => {
 	'use strict';
 	const params = {
 		Bucket: request.env.bucketName,
 		Fields: {
-			key: '/uploads/' + request.lambdaContext.awsRequestId
+			key: 'upload/' + request.lambdaContext.awsRequestId
 		}
 	};
 	return S3.createPresignedPost(params);

@@ -1,0 +1,26 @@
+{
+  "name": "upload-signer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "create": "claudia create --version dev --api-module api --region $npm_package_config_region --configure-bucket --no-optional-dependencies",
+    "update": "claudia update --version dev",
+    "reconfigure": "claudia update --version dev --configure-bucket"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "config": {
+    "region": "us-east-1"
+  },
+  "dependencies": {
+    "claudia-api-builder": "^2.4.2"
+  },
+  "devDependencies": {
+    "claudia": "^2.12.1"
+  },
+  "optionalDependencies": {
+    "aws-sdk": "^2.50.0"
+  }
+}
