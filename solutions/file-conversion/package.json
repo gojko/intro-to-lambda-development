@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "create": "claudia create --region $npm_package_config_region --version dev --handler lambda.main --timeout 300 --memory 1024",
-    "update": "claudia update --version dev",
+    "update": "claudia update --version dev --timeout 300 --memory 1024",
     "wire": "claudia add-s3-event-source --version dev --bucket $npm_package_config_bucket --prefix upload/"
   },
   "keywords": [],

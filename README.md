@@ -17,7 +17,8 @@
 
 ## Serverless application model
 
-* [Serverless application model](https://github.com/awslabs/serverless-application-model)
+* https://github.com/awslabs/serverless-application-model
+* https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html
 
 ## S3 operations
 
