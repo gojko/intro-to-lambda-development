@@ -15,12 +15,12 @@
     "region": "us-east-1"
   },
   "dependencies": {
-    "claudia-api-builder": "^2.4.2"
+    "claudia-api-builder": "^4.0.0"
   },
   "devDependencies": {
-    "claudia": "^2.12.1"
+    "claudia": "^4.0.0"
   },
   "optionalDependencies": {
-    "aws-sdk": "^2.50.0"
+    "aws-sdk": "^2.234.1"
   }
 }
