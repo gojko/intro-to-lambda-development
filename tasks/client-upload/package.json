@@ -5,12 +5,11 @@
   "main": "index.js",
   "scripts": {
     "create": "claudia create --version dev --api-module api --region $npm_package_config_region --configure-bucket --no-optional-dependencies",
-    "update": "claudia update --version dev",
-    "reconfigure": "claudia update --version dev --configure-bucket"
+    "update": "claudia update --version dev --no-optional-dependencies",
+    "reconfigure": "claudia update --version dev --configure-bucket --no-optional-dependencies"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "config": {
     "region": "us-east-1"
   },

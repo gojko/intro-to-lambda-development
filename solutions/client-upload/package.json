@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "create": "claudia create --version dev --api-module api --region $npm_package_config_region --configure-bucket --no-optional-dependencies",
-    "update": "claudia update --version dev",
+    "deploy": "claudia update --version dev --cache-api-config=uploaderConfig",
     "reconfigure": "claudia update --version dev --configure-bucket"
   },
   "keywords": [],
