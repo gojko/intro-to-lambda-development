@@ -1,0 +1,24 @@
+{
+  "name": "save-to-s3",
+  "version": "2.0.0",
+  "files": [
+    "*.js"
+  ],
+  "scripts": {
+    "create": "claudia create --region us-east-1 --api-module api --policies policies --set-env BUCKET_NAME=$npm_package_config_bucket_name",
+    "update": "claudia update",
+    "configure": "claudia update --set-env BUCKET_NAME=$npm_package_config_bucket_name"
+  },
+  "dependencies": {
+    "claudia-api-builder": "^4.0.0"
+  },
+  "devDependencies": {
+    "claudia": "^4.0.0"
+  },
+  "optionalDependencies": {
+    "aws-sdk": "^2.234.1"
+  },
+  "config": {
+    "bucket_name": "YOUR_BUCKET_NAME"
+  }
+}
