@@ -9,12 +9,10 @@ module.exports = api;
 api.get('/upload-file', request => {
 	'use strict';
 	const params = {
-		Bucket: request.env.bucketName,
+		Bucket: process.env.BUCKET_NAME,
 		Fields: {
-			key: 'upload/' + request.lambdaContext.awsRequestId
+			key: 'upload/' + request.lambdaContext.awsRequestId + '.png'
 		}
 	};
 	return S3.createPresignedPost(params);
 });
-
-api.addPostDeployConfig('bucketName', 'Upload bucket name', 'configure-bucket');

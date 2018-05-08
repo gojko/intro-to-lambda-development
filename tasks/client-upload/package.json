@@ -1,17 +1,17 @@
 {
-  "name": "upload-signer",
+  "name": "client-upload",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "create": "claudia create --version dev --api-module api --region $npm_package_config_region --configure-bucket --no-optional-dependencies",
-    "update": "claudia update --version dev --no-optional-dependencies",
-    "reconfigure": "claudia update --version dev --configure-bucket --no-optional-dependencies"
+    "create": "claudia create --version dev --api-module api --policies policies --region $npm_package_config_region --set-env BUCKET_NAME=$npm_package_config_bucket --no-optional-dependencies",
+    "update": "claudia update --version dev --no-optional-dependencies"
   },
   "keywords": [],
   "author": "",
   "config": {
-    "region": "us-east-1"
+    "region": "us-east-1",
+    "bucket": "bucket"
   },
   "dependencies": {
     "claudia-api-builder": "^4.0.0"
