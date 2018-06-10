@@ -2,7 +2,6 @@
   "name": "client-upload",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "create": "claudia create --version dev --api-module api --policies policies --region us-east-1 --set-env BUCKET_NAME=<YOUR BUCKET NAME> --no-optional-dependencies",
     "update": "claudia update --version dev --no-optional-dependencies"

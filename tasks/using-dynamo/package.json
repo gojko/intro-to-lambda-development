@@ -1,7 +1,6 @@
 {
   "name": "using-dynamodb",
   "version": "2.0.0",
-  "main": "index.js",
   "files": [
     "*.js"
   ],

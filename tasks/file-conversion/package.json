@@ -1,7 +1,6 @@
 {
   "name": "file-conversion",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "create": "claudia create --region us-east-1 --version dev --handler lambda.main --timeout 300 --memory 1024",
     "update": "claudia update --version dev",
