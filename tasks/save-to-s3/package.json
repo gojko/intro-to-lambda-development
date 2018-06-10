@@ -5,9 +5,9 @@
     "*.js"
   ],
   "scripts": {
-    "create": "claudia create --region us-east-1 --api-module api --policies policies --set-env BUCKET_NAME=$npm_package_config_bucket_name",
+    "create": "claudia create --region us-east-1 --api-module api --policies policies --set-env BUCKET_NAME=<YOUR_BUCKET_NAME>",
     "update": "claudia update",
-    "configure": "claudia update --set-env BUCKET_NAME=$npm_package_config_bucket_name"
+    "configure": "claudia update --update-env BUCKET_NAME=<YOUR_BUCKET_NAME>"
   },
   "dependencies": {
     "claudia-api-builder": "^4.0.0"
@@ -17,8 +17,5 @@
   },
   "optionalDependencies": {
     "aws-sdk": "^2.234.1"
-  },
-  "config": {
-    "bucket_name": "YOUR_BUCKET_NAME"
   }
 }

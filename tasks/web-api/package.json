@@ -13,6 +13,6 @@
     "claudia-api-builder": "^4.0.0"
   },
   "devDependencies": {
-    "claudia": "^4.0.0"
+    "claudia": "^5.0.0"
   }
 }

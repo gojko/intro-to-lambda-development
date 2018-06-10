@@ -3,16 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "create": "claudia create --region $npm_package_config_region --version dev --handler lambda.main --timeout 300 --memory 1024",
+    "create": "claudia create --region us-east-1 --version dev --handler lambda.main --timeout 300 --memory 1024",
     "update": "claudia update --version dev",
-    "wire": "claudia add-s3-event-source --version dev --bucket $npm_package_config_bucket --prefix upload/"
+    "wire": "claudia add-s3-event-source --version dev --bucket <YOUR BUCKET NAME> --prefix upload/"
   },
   "keywords": [],
   "author": "",
-  "config": {
-    "region": "us-east-1",
-    "bucket": "upload-bucket"
-  },
   "devDependencies": {
     "claudia": "^4.0.0"
   },
