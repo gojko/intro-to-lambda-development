@@ -1,0 +1,87 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: A serverless thumbnail conversion system 
+Parameters:
+  ImageSize:
+    Type: Number
+    Default: 200
+    Description: Thumbnail size 
+Resources:
+  UploadBucket:
+    Type: AWS::S3::Bucket
+
+  ResultsBucket:
+    Type: AWS::S3::Bucket
+
+  IndexFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs8.10
+      Policies:
+      - S3CrudPolicy:
+          BucketName: !Ref UploadBucket
+      Environment:
+        Variables:
+          BUCKET_NAME: !Ref UploadBucket
+      CodeUri: web/
+      Events:
+        RootEndpoint:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
+
+  ThanksPageFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: thanks.handler
+      Runtime: nodejs8.10
+      CodeUri: web/
+      Policies:
+      - S3ReadPolicy:
+          BucketName: !Ref ResultsBucket
+      Environment:
+        Variables:
+          BUCKET_NAME: !Ref ResultsBucket
+      Events:
+        ThanksPage:
+          Type: Api
+          Properties:
+            Path: /thanks
+            Method: get
+
+  ConvertFileFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda.main
+      Timeout: 180
+      MemorySize: 512
+      Runtime: nodejs8.10
+      CodeUri: conversion/
+      Policies:
+      - S3CrudPolicy:
+          BucketName: !Sub "${AWS::StackName}-*"
+      Environment:
+        Variables:
+          RESULTS_BUCKET_NAME: !Ref ResultsBucket
+          IMAGE_SIZE: !Ref ImageSize
+      Events:
+        ImageUpload:
+          Type: S3
+          Properties:
+            Bucket: !Ref UploadBucket
+            Events: s3:ObjectCreated:*
+
+Outputs:
+    ApiURL:
+      Description: "API endpoint URL for Prod environment"
+      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    UploadBucket:
+      Description: "Upload S3 bucket"
+      Value: !Ref UploadBucket
+    ResultsBucket:
+      Description: "Results S3 bucket"
+      Value: !Ref ResultsBucket
+
+

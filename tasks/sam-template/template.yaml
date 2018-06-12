@@ -1,6 +1,11 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: A simple web app saving forms to S3 
+Parameters:
+  FoodType:
+    Type: String
+    Default: Steak
+    Description: Question to ask on the form
 Resources:
   IndexFunction:
     Type: AWS::Serverless::Function
@@ -8,6 +13,9 @@ Resources:
       Handler: index.handler
       Runtime: nodejs8.10
       CodeUri: src/
+      Environment:
+        Variables:
+          FOOD_TYPE: !Ref FoodType
       Events:
         GetResource:
           Type: Api
@@ -15,51 +23,8 @@ Resources:
             Path: /
             Method: get
 
-  PostFormFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Handler: submission.post
-      Runtime: nodejs8.10
-      CodeUri: src/
-      Policies:
-      - S3CrudPolicy:
-          BucketName: !Ref Bucket
-      Environment:
-        Variables:
-          BUCKET_NAME: !Ref Bucket
-      Events:
-        PostResource:
-          Type: Api
-          Properties:
-            Path: /submit
-            Method: post 
-
-  GetSubmissionFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Handler: submission.get
-      Runtime: nodejs8.10
-      CodeUri: src/
-      Policies:
-      - S3CrudPolicy:
-          BucketName: !Ref Bucket
-      Environment:
-        Variables:
-          BUCKET_NAME: !Ref Bucket
-      Events:
-        PostResource:
-          Type: Api
-          Properties:
-            Path: /submissions/{submissionId}
-            Method: get
-  Bucket:
-    Type: AWS::S3::Bucket
-
 Outputs:
     ApiURL:
       Description: "API endpoint URL for Prod environment"
       Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
-    Bucket:
-      Description: "S3 storage"
-      Value: !Ref Bucket
 

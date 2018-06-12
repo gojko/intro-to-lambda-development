@@ -7,16 +7,18 @@
 * [Claudia API Builder request object](https://github.com/claudiajs/claudia-api-builder/blob/master/docs/api.md)
 * https://claudiajs.com
 
-### Serverless application model
-
-* https://github.com/awslabs/serverless-application-model
-* https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html
-* https://github.com/awslabs/aws-sam-cli
-
 ### AWS CLI
 
 * http://jmespath.org/examples.html
 * https://claudiajs.com/tutorials/aws-cli-tricks.html
+
+### Serverless application model
+
+* [Github Repo](https://github.com/awslabs/serverless-application-model)
+* [Parameter docs](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md)
+* [SAM Command line tools](https://github.com/awslabs/aws-sam-cli)
+* [Quick intro](https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html)
+
 
 ## AWS APIs
 

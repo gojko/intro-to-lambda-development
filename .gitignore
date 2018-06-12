@@ -1,7 +1,7 @@
 claudia.json
 .DS_Store
 package-lock.json
-
+output.yaml
 # Logs
 logs
 *.log
