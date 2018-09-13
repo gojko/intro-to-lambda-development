@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "lint": "eslint *.js",
+    "precreate": "eslint *.js",
+    "preupdate": "eslint *.js",
     "create": "claudia create --region us-east-1 --api-module api",
     "update": "claudia update"
   },
@@ -10,9 +13,11 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "claudia-api-builder": "^4.0.0"
+    "claudia-api-builder": "^4.1.1"
   },
   "devDependencies": {
-    "claudia": "^5.0.0"
+    "claudia": "^5.1.1",
+    "eslint": "^5.5.0",
+    "eslint-config-crockford": "^2.0.0"
   }
 }

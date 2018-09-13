@@ -3,6 +3,6 @@ const API = require('claudia-api-builder'),
 
 module.exports = api;
 
-api.get('/hello', function (request) {
+api.get('/hello', function (request) {//eslint-disable-line  no-unused-vars
 	return 'hello world';
 });

@@ -5,15 +5,19 @@
     "*.js"
   ],
   "scripts": {
+    "precreate": "eslint .",
+    "preupdate": "eslint .",
     "create": "claudia create --region us-east-1 --api-module api --policies policies --set-env BUCKET_NAME=<YOUR_BUCKET_NAME>",
     "update": "claudia update",
     "configure": "claudia update --update-env BUCKET_NAME=<YOUR_BUCKET_NAME>"
   },
   "dependencies": {
-    "claudia-api-builder": "^4.0.0"
+    "claudia-api-builder": "^4.1.1"
   },
   "devDependencies": {
-    "claudia": "^4.0.0"
+    "claudia": "^5.1.1",
+    "eslint": "^5.5.0",
+    "eslint-config-crockford": "^2.0.0"
   },
   "optionalDependencies": {
     "aws-sdk": "^2.234.1"
