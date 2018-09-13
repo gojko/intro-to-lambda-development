@@ -1,8 +1,4 @@
-const s3Util = require('./s3-util'),
-	resize = require('./resize'),
-	path = require('path'),
-	os = require('os');
-exports.main = function (eventObject, context) {
+exports.main = function (eventObject, context) { //eslint-disable-line no-unused-vars
 	console.log('received upload event for', JSON.stringify(eventObject));
 	return Promise.resolve('OK');
 };
