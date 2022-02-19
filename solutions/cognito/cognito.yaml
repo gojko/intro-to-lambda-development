@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: CognitoAPI
+Resources:
+  CognitoUserPool:
+    Type: "AWS::Cognito::UserPool"
+    Properties:
+      UserPoolName: CognitoAPI
+  CognitoUserPoolClient:    
+    Type: "AWS::Cognito::UserPoolClient"
+    Properties:
+        ClientName: myApp
+        GenerateSecret: false
+        UserPoolId: !Ref CognitoUserPool
+  CognitoIdPool:
+    Type: "AWS::Cognito::IdentityPool"
+    Properties:
+      IdentityPoolName: !Ref AWS::StackName
+      CognitoIdentityProviders: 
+        -
+          ClientId: !Ref CognitoUserPoolClient
+          ProviderName: !GetAtt CognitoUserPool.ProviderName
+      AllowUnauthenticatedIdentities: false
+
+Outputs:
+    CognitoUserPool:
+      Description: "Cognito User Pool"
+      Value: !GetAtt CognitoUserPool.Arn
+    CognitoUserPoolClient:
+      Description: "Cognito User Pool Client"
+      Value: !Ref CognitoUserPoolClient
+
+

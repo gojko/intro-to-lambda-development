@@ -1,0 +1,20 @@
+{
+  "name": "cognito",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "create": "claudia create --region us-east-1 --api-module api",
+    "configure": "claudia update --update-env COGNITO_USER_POOL=arn:aws:cognito-idp:us-east-1:622887443104:userpool/us-east-1_KoDTpIuao",
+    "update": "claudia update"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "claudia-api-builder": "^4.0.2"
+  },
+  "devDependencies": {
+    "claudia": "^5.0.0"
+  }
+}
